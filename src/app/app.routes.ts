@@ -1,7 +1,10 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component'; 
+import { RegisterComponent } from './components/auth/register/register.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' } // Optional: Redirect to login on empty path
+  {path: 'register', component: RegisterComponent},
+  {path: '**', component: NotFoundComponent}
 ];
