@@ -1,48 +1,66 @@
-import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import axios from 'axios';
+import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
+import {
+  FormControl,
+  FormGroupDirective,
+  NgForm,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 
-import {merge} from 'rxjs';
-
-/** @title Form field with error messages */
 @Component({
   selector: 'app-login',
   templateUrl: 'login.component.html',
   styleUrl: 'login.component.css',
-  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatIconModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [FormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+
 })
 export class LoginComponent {
+  EmailControl = new FormControl('', [Validators.required, Validators.email]);
+  passwordControl = new FormControl('', Validators.required) 
 
-
+  matcher = new MyErrorStateMatcher();
   hide = signal(true);
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation();
   }
-  readonly email = new FormControl('', [Validators.required, Validators.email]);
 
-  errorMessage = signal('');
+  login(){
+    console.log('Login button clicked');
+  console.log('Email:', this.EmailControl.value);
+  console.log('Password:', this.passwordControl.value);
+    if (this.EmailControl.valid && this.passwordControl.valid){
+      const login_data = {
+        email: this.EmailControl.value,
+        password: this.passwordControl.value
+      }
 
-
-  constructor() {
-    merge(this.email.statusChanges, this.email.valueChanges)
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateErrorMessage());
-  }
-
-  updateErrorMessage() {
-    if (this.email.hasError('required')) {
-      this.errorMessage.set('You must enter a value');
-    } else if (this.email.hasError('email')) {
-      this.errorMessage.set('Not a valid email');
-    } else {
-      this.errorMessage.set('');
+      axios.post('http://localhost:8080/login', login_data, {withCredentials: true})
+      .then(response=>{
+        alert("SUCCESS")
+        console.log(response.data)
+      })
+      .catch(error =>{
+        console.error(error)
+        alert("login failed")
+      })
     }
   }
+
 }

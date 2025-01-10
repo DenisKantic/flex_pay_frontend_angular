@@ -2,24 +2,30 @@
     height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    width: 40%;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    background-color: gray;
     padding: 2rem;
-    background-color: white;
+}
+mat-form-field {
+
+    width: 100%; 
 }
 
-mat-form-field{
-    width: 100%;
+.password{
+    visibility: visible;
 }
-
-.example-container mat-form-field + mat-form-field {
-    margin-left: 8px;
-  }
+  
+button{
+    width: 10rem;
+}
