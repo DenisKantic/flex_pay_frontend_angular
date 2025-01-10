@@ -1,0 +1,32 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    background-color: lightblue;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    background-color: gray;
+    padding: 2rem;
+}
+mat-form-field {
+
+    width: 100%; 
+}
+
+.password{
+    visibility: visible;
+}
+  
+button{
+    width: 10rem;
+}
