@@ -1,0 +1,38 @@
+<div class="container">
+<h1>Flex pay</h1>
+<form class="form">
+
+   <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="EmailControl" [errorStateMatcher]="matcher"
+           placeholder="Ex. pat@example.com">
+    @if (EmailControl.hasError('email') && !EmailControl.hasError('required')) {
+      <mat-error>Please enter a valid email address</mat-error>
+    }
+    @if (EmailControl.hasError('required')) {
+      <mat-error>Email is <strong>required</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Enter your password</mat-label>
+    <input
+    [formControl]="passwordControl"
+    [errorStateMatcher]="matcher"
+    required matInput [type]="hide() ? 'password' : 'text'" />
+    
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button type="submit" (click)="login()" mat-flat-button>Login</button>
+
+</form>
+</div>
