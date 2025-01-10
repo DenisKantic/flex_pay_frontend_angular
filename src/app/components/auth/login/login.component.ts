@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   FormControl,
   FormGroupDirective,
@@ -36,6 +37,9 @@ export class LoginComponent {
 
   matcher = new MyErrorStateMatcher();
   hide = signal(true);
+  
+  constructor(private _snackBar: MatSnackBar) { }
+
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation();
@@ -53,12 +57,19 @@ export class LoginComponent {
 
       axios.post('http://localhost:8080/login', login_data, {withCredentials: true})
       .then(response=>{
-        alert("SUCCESS")
+        this._snackBar.open('Login successful!', 
+          'Close', 
+          { duration: 3000 ,
+          panelClass: ['success-snackbar']
+       }); 
         console.log(response.data)
       })
       .catch(error =>{
         console.error(error)
-        alert("login failed")
+        this._snackBar.open(error.response.data, 
+          'Close', { 
+            duration: 3000,
+            panelClass: ['error-snackbar'] }); // Success message
       })
     }
   }
