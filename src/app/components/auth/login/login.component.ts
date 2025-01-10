@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Router } from '@angular/router';
 import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {
@@ -38,7 +39,7 @@ export class LoginComponent {
   matcher = new MyErrorStateMatcher();
   hide = signal(true);
   
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar, private router:Router) { }
 
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
@@ -62,6 +63,7 @@ export class LoginComponent {
           { duration: 3000 ,
           panelClass: ['success-snackbar']
        }); 
+       this.router.navigate(['/dashboard'])
         console.log(response.data)
       })
       .catch(error =>{
