@@ -1,0 +1,26 @@
+<div class="settings-container">
+    <app-navbar />
+    <div class="wrapper">
+    <p>Settings</p>
+
+
+    <div class="settings">
+    <p>Change your email</p>
+    <mat-form-field class="example-full-width">
+
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="EmailControl" [errorStateMatcher]="matcher"
+               placeholder="Ex. pat@example.com">
+        @if (EmailControl.hasError('email') && !EmailControl.hasError('required')) {
+          <mat-error>Please enter a valid email address</mat-error>
+        }
+        @if (EmailControl.hasError('required')) {
+          <mat-error>Email is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+
+      <button mat-flat-button>Change email</button>
+    </div>
+
+</div>
+</div>
