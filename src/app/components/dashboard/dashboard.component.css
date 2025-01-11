@@ -1,0 +1,76 @@
+.dash-container{
+    background-color: #faf8f5;
+    height: 100vh;
+    width: 100%;
+}
+
+.wrapper{
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+
+}
+
+.left-side{
+    height: 100vh;
+    width: 100%;
+    padding: 1rem;
+}
+
+.right-side{
+    height: 100vh;
+    padding: 1rem;
+    background-color: coral;
+    width: 100%;
+}
+
+.transfer-btn{
+    background-color: #003087 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.dollar{
+    font-size: 3.5rem;
+    margin-top: 1rem;
+    padding: 1rem 0;
+    font-weight: bold;
+    color: black;
+}
+
+mat-card-title{
+    font-size: 1rem;
+}
+
+mat-card{
+    border-radius: 1rem;
+}
+
+.transfer-btn:hover{
+    background-color: #4576d1 !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.send-money{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.send-money .transfer-btn{
+    font-size: 1.5rem;
+    padding: 2rem  !important;
+}
+
+mat-icon{
+    font-size: 1.2rem !important;
+    margin-right: 4rem;
+}
