@@ -23,7 +23,9 @@ import axios from 'axios';
 })
 export class NavbarComponent {
 
+
     constructor(private _snackBar: MatSnackBar, private router:Router, private cookieService: CookieService) { }
+
   
   logOut() {
    
@@ -31,8 +33,6 @@ export class NavbarComponent {
     .then(response =>{
         this._snackBar.open('Logging out')
         console.log(response)
-
-
         // Remove the JWT cookie after successful logout
         this.cookieService.delete('jwt'); // Specify the exact name of your cookie
         this.router.navigate(['/login'])
