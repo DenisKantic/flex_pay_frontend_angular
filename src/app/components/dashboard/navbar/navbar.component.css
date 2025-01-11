@@ -1,20 +1,24 @@
 mat-toolbar{
     display: flex;
     align-items: center;
+    width: 100%;
     justify-content: center;
+}
+
+.wrapper{
+    width: 80%;
+    margin: auto;
 }
 
 div{
     display: flex;
-    width: 90%;
+    width: 100%;
     align-items: center;
-    justify-content: center;
 }
 
 button{
     display: flex;
-    margin-right: 1rem;
     justify-content: center;
     align-items: center;
-    background-color: green;
 }
+

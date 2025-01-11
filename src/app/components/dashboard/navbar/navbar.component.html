@@ -1,26 +1,29 @@
 <mat-toolbar  color="primary">
+  <div class="wrapper">
   <div>
-    <button mat-flat-button  routerLink="/home">
+    <button style="margin-right: 1rem;" mat-flat-button  routerLink="/dashboard">
       <mat-icon>home</mat-icon>
       <p>Home</p>
     </button>
   
-    <button mat-flat-button  routerLink="/home">
-      <mat-icon>wallet</mat-icon>
-      <p>Home</p>
-    </button>
   
-    <button mat-flat-button  routerLink="/home">
+    <button style="margin-right: 1rem;" mat-flat-button  routerLink="/dashboard/send-money">
+      <mat-icon>money</mat-icon>
+      <p>Send Money</p>
+    </button>
+
+    <button style="margin-right: 1rem;" mat-flat-button  routerLink="/dashboard/settings">
       <mat-icon>settings</mat-icon>
-      <p>Home</p>
+      <p>Settings</p>
     </button>
   </div>
     <span class="spacer"></span>
 
     
-    <button mat-flat-button  routerLink="/home">
+    <button mat-flat-button>
       <mat-icon>logout</mat-icon>
-      <p>Home</p>
+      <p>Logout</p>
     </button>
+  </div>
   </mat-toolbar>
   
