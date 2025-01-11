@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Router } from '@angular/router';
 import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
+import { CookieService } from 'ngx-cookie-service'; // Import CookieService
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   FormControl,
@@ -39,7 +40,7 @@ export class LoginComponent {
   matcher = new MyErrorStateMatcher();
   hide = signal(true);
   
-  constructor(private _snackBar: MatSnackBar, private router:Router) { }
+  constructor(private _snackBar: MatSnackBar, private router:Router, private cookieService:CookieService) { }
 
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
@@ -47,6 +48,9 @@ export class LoginComponent {
   }
 
   login(){
+
+    // delete just in case older jwt inside cookies
+    this.cookieService.delete('jwt');
     console.log('Login button clicked');
   console.log('Email:', this.EmailControl.value);
   console.log('Password:', this.passwordControl.value);
