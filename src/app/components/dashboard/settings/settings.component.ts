@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { CookieService } from 'ngx-cookie-service'; // Import CookieService
+import { Router } from '@angular/router';
 import {
   FormControl,
   FormGroupDirective,
@@ -35,7 +37,7 @@ export class SettingsComponent {
   EmailControl = new FormControl('', [Validators.required, Validators.email]);
   matcher = new MyErrorStateMatcher();
 
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private _snackBar: MatSnackBar, private router:Router, private cookieService:CookieService) {}
 
   // Method to handle email change
   changeEmail(): void {
@@ -46,6 +48,8 @@ export class SettingsComponent {
       axios.post('http://localhost:8080/change-email', { new_email: newEmail }, { withCredentials: true })
         .then(response => {
           this._snackBar.open('Email changed successfully', 'Close', { duration: 2000 });
+          this.cookieService.delete('jwt');
+          this.router.navigate(['/login'])
           console.log(response.data);
         })
         .catch(error => {
