@@ -6,7 +6,8 @@
     justify-content: center;
     align-items: center;
     overflow: visible;
-    background-color: lightblue;
+    background-image: url("../bg_image.jpg");
+    background-size: cover;
 }
 
 .form{
@@ -15,11 +16,13 @@
     justify-content: center;
     align-items: center;
     width: 30%;
-    background-color: gray;
+    background-color: #38598b;
     padding: 2rem;
+    border-radius: 2rem;
 }
-mat-form-field {
 
+mat-form-field {
+    margin-bottom: 1rem;
     width: 100%; 
 }
 
@@ -29,4 +32,25 @@ mat-form-field {
   
 button{
     width: 10rem;
+}
+
+.submit-btn{
+    width: 10rem;
+    background-color: #f95959 !important;
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+.bottom-text{
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 0;
+    padding-top: 1rem;
+}
+
+span{
+    text-decoration: underline;
+    cursor: pointer;
 }

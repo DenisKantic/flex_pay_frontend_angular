@@ -14,7 +14,7 @@
     }
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field  class="pass-field">
     <mat-label>Enter your password</mat-label>
     <input
     [formControl]="passwordControl"
@@ -32,7 +32,9 @@
     </button>
   </mat-form-field>
 
-  <button type="submit" (click)="login()" mat-flat-button>Login</button>
+  <button class="submit-btn" type="submit" (click)="login()" mat-flat-button>Login</button>
+
+  <p class="bottom-text">Don't have an account? <span  routerLink="/register">Register here</span></p>
 
 </form>
 </div>

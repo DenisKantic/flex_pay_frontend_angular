@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {provideNativeDateAdapter} from '@angular/material/core';
@@ -32,7 +33,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: 'register.component.html',
   providers: [provideNativeDateAdapter()],
   styleUrl: 'register.component.css',
-  imports: [MatDatepickerModule, FormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+  imports: [MatDatepickerModule, FormsModule,RouterModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {

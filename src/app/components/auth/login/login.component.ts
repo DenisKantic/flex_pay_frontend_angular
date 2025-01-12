@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
 import { CookieService } from 'ngx-cookie-service'; // Import CookieService
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -30,7 +31,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-login',
   templateUrl: 'login.component.html',
   styleUrl: 'login.component.css',
-  imports: [FormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+  imports: [FormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, RouterModule],
 
 })
 export class LoginComponent {
