@@ -24,7 +24,6 @@
 .right-side{
     height: 100vh;
     padding: 1rem;
-    background-color: coral;
     width: 100%;
 }
 
@@ -73,4 +72,43 @@ mat-card{
 mat-icon{
     font-size: 1.2rem !important;
     margin-right: 4rem;
+}
+
+.card{
+    background-image: url('./card.jpg');
+    background-size: cover;
+    height: 30vh;
+    color: white;
+}
+
+.flex{
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    color: white;
+    font-weight: bold;
+}
+
+.username{
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+
+.card_number{
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.email{
+    margin-top: 4rem;
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.valid_to{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
 }
