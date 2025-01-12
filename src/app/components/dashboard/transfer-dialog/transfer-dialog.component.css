@@ -1,0 +1,8 @@
+.container{
+    width: 100%;
+    overflow: hidden;
+}
+
+mat-dialog-content{
+    overflow: hidden;
+}

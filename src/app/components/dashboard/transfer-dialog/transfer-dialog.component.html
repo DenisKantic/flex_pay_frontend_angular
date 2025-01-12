@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Transfer Funds</h2>
+<div class="container">
+    <mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput [(ngModel)]="amount" type="number" min="0" required>
+        <mat-error *ngIf="amount === null || amount <= 0">Please enter a valid amount</mat-error>
+    </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="confirmTransfer()" [disabled]="amount === null || amount <= 0">Transfer</button>
+    </mat-dialog-actions>
+</div>
