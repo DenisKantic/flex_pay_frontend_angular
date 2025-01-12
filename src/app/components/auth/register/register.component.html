@@ -1,8 +1,6 @@
 <div class="container">
 <h1>Flex pay</h1>
 <form class="form">
-    <p style="margin-top: -1rem;">Register</p>
-
     <!-- username -->
     <mat-form-field class="example-full-width">
         <mat-label>Username</mat-label>
@@ -67,7 +65,9 @@
   </mat-form-field>
   
 
-  <button type="submit" (click)="register()" mat-flat-button>Register</button>
+  <button class="submit-btn" type="submit" (click)="register()" mat-flat-button>Register</button>
+
+  <p class="bottom-text">Already have an account? <span  routerLink="/login">Login here</span></p>
 
 </form>
 </div>
