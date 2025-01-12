@@ -7,11 +7,11 @@ import { ReactiveFormsModule } from '@angular/forms'; // For form handling
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-transfer-dialog',
-  imports: [MatDialogModule, MatCardModule, MatFormFieldModule, ReactiveFormsModule, FormsModule, CommonModule, MatInputModule],
+  imports: [MatDialogModule, MatButton, MatCardModule, MatFormFieldModule, ReactiveFormsModule, FormsModule, CommonModule, MatInputModule],
   templateUrl: './transfer-dialog.component.html',
   styleUrls: ['./transfer-dialog.component.css']
 })
