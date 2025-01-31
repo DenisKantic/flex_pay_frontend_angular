@@ -1,73 +1,108 @@
 <div class="container">
-<h1>Flex pay</h1>
-<form class="form">
+  <h1>Flex pay</h1>
+  <form class="form">
     <!-- username -->
     <mat-form-field class="example-full-width">
-        <mat-label>Username</mat-label>
-        <input type="email" matInput [formControl]="usernameControl" [errorStateMatcher]="matcher"
-               placeholder="Ex. pat@example.com">
-        @if (usernameControl.hasError('required')) {
-          <mat-error>Email is <strong>required</strong></mat-error>
-        }
-      </mat-form-field>
+      <mat-label>Username</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="usernameControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ex. pat@example.com"
+      />
+      @if (usernameControl.hasError("required")) {
+        <mat-error>Email is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
 
-      <!-- email -->
-   <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
-    <input type="email" matInput [formControl]="EmailControl" [errorStateMatcher]="matcher"
-           placeholder="Ex. pat@example.com">
-    @if (EmailControl.hasError('email') && !EmailControl.hasError('required')) {
-      <mat-error>Please enter a valid email address</mat-error>
-    }
-    @if (EmailControl.hasError('required')) {
-      <mat-error>Email is <strong>required</strong></mat-error>
-    }
-  </mat-form-field>
+    <!-- email -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="EmailControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ex. pat@example.com"
+      />
+      @if (
+        EmailControl.hasError("email") && !EmailControl.hasError("required")
+      ) {
+        <mat-error>Please enter a valid email address</mat-error>
+      }
+      @if (EmailControl.hasError("required")) {
+        <mat-error>Email is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Enter your password</mat-label>
-    <input
-    [formControl]="passwordControl"
-    [errorStateMatcher]="matcher"
-    required matInput [type]="hide() ? 'password' : 'text'" />
-    
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="clickEvent($event)"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide()"
-    >
-      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input
+        [formControl]="passwordControl"
+        [errorStateMatcher]="matcher"
+        required
+        matInput
+        [type]="hide() ? 'password' : 'text'"
+      />
 
-  <!-- card number -->
-  <mat-form-field class="example-full-width">
-    <mat-label>Card Number</mat-label>
-    <input type="email" matInput [formControl]="cardControl" [errorStateMatcher]="matcher"
-           placeholder="Ex. pat@example.com">
-    @if (cardControl.hasError('required')) {
-      <mat-error>Card number is <strong>required</strong></mat-error>
-    }
-  </mat-form-field>
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="clickEvent($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide()"
+      >
+        <mat-icon>{{ hide() ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
 
+    <!-- card number -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Card Number</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="cardControl"
+        [errorStateMatcher]="matcher"
+        placeholder="Ex. pat@example.com"
+      />
+      @if (cardControl.hasError("required")) {
+        <mat-error>Card number is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
 
-  <!-- date valid picker -->
-  <mat-form-field>
-    <mat-label>Choose a date</mat-label>
-    <input matInput [formControl]="dateControl" [errorStateMatcher]="matcher" [matDatepicker]="picker" required>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-    @if (cardControl.hasError('required')) {
+    <!-- date valid picker -->
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        [formControl]="dateControl"
+        [errorStateMatcher]="matcher"
+        [matDatepicker]="picker"
+        required
+      />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      @if (cardControl.hasError("required")) {
         <mat-error>Date is <strong>required</strong></mat-error>
       }
-  </mat-form-field>
-  
+    </mat-form-field>
 
-  <button class="submit-btn" type="submit" (click)="register()" mat-flat-button>Register</button>
+    <button
+      class="submit-btn"
+      type="submit"
+      (click)="register()"
+      mat-flat-button
+    >
+      Register
+    </button>
 
-  <p class="bottom-text">Already have an account? <span  routerLink="/login">Login here</span></p>
-
-</form>
+    <p class="bottom-text">
+      Already have an account? <span routerLink="/login">Login here</span>
+    </p>
+  </form>
 </div>

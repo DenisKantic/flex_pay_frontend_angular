@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog'; // Import MatDialogModule
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field'; // For mat-form-field
 import { ReactiveFormsModule } from '@angular/forms'; // For form handling
 import { FormsModule } from '@angular/forms'; // Import FormsModule
@@ -11,16 +11,25 @@ import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-transfer-dialog',
-  imports: [MatDialogModule, MatButton, MatCardModule, MatFormFieldModule, ReactiveFormsModule, FormsModule, CommonModule, MatInputModule],
+  imports: [
+    MatDialogModule,
+    MatButton,
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    MatInputModule,
+  ],
   templateUrl: './transfer-dialog.component.html',
-  styleUrls: ['./transfer-dialog.component.css']
+  styleUrls: ['./transfer-dialog.component.css'],
 })
 export class TransferDialogComponent {
   amount: number | null = null; // Amount to transfer
 
   constructor(
     public dialogRef: MatDialogRef<TransferDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any // Receiving data if needed
+    @Inject(MAT_DIALOG_DATA) public data: any, // Receiving data if needed
   ) {}
 
   onNoClick(): void {

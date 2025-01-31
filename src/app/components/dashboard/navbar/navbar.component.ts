@@ -17,30 +17,32 @@ import axios from 'axios';
     MatIconModule,
     MatButtonModule,
     RouterModule,
-    MatMenuModule,],
+    MatMenuModule,
+  ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
+  constructor(
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private cookieService: CookieService,
+  ) {}
 
-    constructor(private _snackBar: MatSnackBar, private router:Router, private cookieService: CookieService) { }
-  
   logOut() {
-   
-    axios.get('http://localhost:8080/logout', {withCredentials: true})
-    .then(response =>{
-        this._snackBar.open('Logging out')
-        console.log(response)
-
+    axios
+      .get('http://localhost:8080/logout', { withCredentials: true })
+      .then((response) => {
+        this._snackBar.open('Logging out');
+        console.log(response);
 
         // Remove the JWT cookie after successful logout
         this.cookieService.delete('jwt'); // Specify the exact name of your cookie
-        this.router.navigate(['/login'])
-    })
-    .catch(error => {
-      this._snackBar.open('Error logging out')
-      console.error(error)
-    })
+        this.router.navigate(['/login']);
+      })
+      .catch((error) => {
+        this._snackBar.open('Error logging out');
+        console.error(error);
+      });
   }
-
 }

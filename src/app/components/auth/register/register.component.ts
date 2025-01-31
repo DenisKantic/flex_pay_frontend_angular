@@ -1,53 +1,53 @@
-import axios from 'axios';
-import { Router } from '@angular/router';
-import { RouterModule } from '@angular/router';
-import { Component, ChangeDetectionStrategy, signal } from "@angular/core";
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {provideNativeDateAdapter} from '@angular/material/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  FormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { FormControl, Validators, FormGroupDirective, NgForm, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { Router, RouterModule } from '@angular/router';
+import { RegisterService } from './register-service';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter, ErrorStateMatcher } from '@angular/material/core';
 
-/** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    return !!(control && control.invalid && (control.dirty || (form && form.submitted)));
   }
 }
-
 
 @Component({
   selector: 'app-login',
   templateUrl: 'register.component.html',
+  styleUrls: ['register.component.css'],
   providers: [provideNativeDateAdapter()],
-  styleUrl: 'register.component.css',
-  imports: [MatDatepickerModule, FormsModule,RouterModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    MatDatepickerModule,
+    FormsModule,
+    RouterModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterComponent {
   EmailControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordControl = new FormControl('', Validators.required) 
-  usernameControl = new FormControl('', Validators.required) 
-  cardControl = new FormControl('', Validators.required) 
-  dateControl = new FormControl('', Validators.required) 
+  passwordControl = new FormControl('', Validators.required);
+  usernameControl = new FormControl('', Validators.required);
+  cardControl = new FormControl('', Validators.required);
+  dateControl = new FormControl('', Validators.required);
 
-
-  matcher = new MyErrorStateMatcher();
   hide = signal(true);
-  
-  constructor(private _snackBar: MatSnackBar, private router:Router) { }
+  matcher = new MyErrorStateMatcher(); // Initialize the matcher
+
+  constructor(
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private registerService: RegisterService
+  ) {}
 
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
@@ -55,60 +55,48 @@ export class RegisterComponent {
   }
 
   formatDate(rawDate: string): string {
-    const date = new Date(rawDate); // Convert the string to a Date object
-    const day = String(date.getDate()).padStart(2, '0'); // Extract day with leading zero
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Extract month (0-based index)
-    const year = date.getFullYear(); // Extract year
-    return `${day}-${month}-${year}`; // Format as dd-mm-yyyy
+    const date = new Date(rawDate);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
   }
-  
 
-  register(){
-
+  register(): void {
     let new_date;
-  
-    const rawDate = this.dateControl.value?.toString(); // Get the date as a string
+
+    const rawDate = this.dateControl.value?.toString();
     if (rawDate) {
-      const formattedDate = this.formatDate(rawDate);
-      new_date = this.formatDate(rawDate)
-      console.log('Formatted Date:', formattedDate);
+      new_date = this.formatDate(rawDate);
+      console.log('Formatted Date:', new_date);
     } else {
       console.log('No date selected');
     }
-  
-    console.log('Login button clicked');
-  console.log('Email:', this.EmailControl.value);
-  console.log('Password:', this.passwordControl.value);
-  console.log("date", this.dateControl.value)
-    if (this.EmailControl.valid && this.passwordControl.valid
-      && this.usernameControl && this.cardControl && this.dateControl
-    ){
-      const register_data = {
-        name: this.usernameControl.value,
-        email: this.EmailControl.value,
-        password: this.passwordControl.value,
-        card_num: this.cardControl.value,
-        valid_to: new_date
-      }
 
-      axios.post('http://localhost:8080/register', register_data, {withCredentials: true})
-      .then(response=>{
-        this._snackBar.open('Register successful!', 
-          'Close', 
-          { duration: 3000 ,
+    const registerData = {
+      name: this.usernameControl.value,
+      email: this.EmailControl.value,
+      password: this.passwordControl.value,
+      card_num: this.cardControl.value,
+      valid_to: new_date
+    };
+
+    this.registerService.registerUser(registerData).subscribe(
+      (response) => {
+        this._snackBar.open('Register successful!', 'Close', {
+          duration: 3000,
           panelClass: ['success-snackbar']
-       }); 
-       this.router.navigate(['/login'])
-        console.log(response.data)
-      })
-      .catch(error =>{
-        console.error(error)
-        this._snackBar.open(error.response.data, 
-          'Close', { 
-            duration: 3000,
-            panelClass: ['error-snackbar'] }); // Success message
-      })
-    }
+        });
+        this.router.navigate(['/login']);
+        console.log(response);
+      },
+      (error) => {
+        console.error(error);
+        this._snackBar.open(error.error, 'Close', {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        });
+      }
+    );
   }
-
 }

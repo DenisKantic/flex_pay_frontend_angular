@@ -8,9 +8,8 @@ describe('TransferDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TransferDialogComponent]
-    })
-    .compileComponents();
+      imports: [TransferDialogComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TransferDialogComponent);
     component = fixture.componentInstance;

@@ -1,114 +1,113 @@
-.dash-container{
-    background-color: #faf8f5;
-    height: 100vh;
-    width: 100%;
+.dash-container {
+  background-color: #faf8f5;
+  height: 100vh;
+  width: 100%;
 }
 
-.wrapper{
-    height: 100%;
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    gap: 2rem;
-
+.wrapper {
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 2rem;
 }
 
-.left-side{
-    height: 100vh;
-    width: 100%;
-    padding: 1rem;
+.left-side {
+  height: 100vh;
+  width: 100%;
+  padding: 1rem;
 }
 
-.right-side{
-    height: 100vh;
-    padding: 1rem;
-    width: 100%;
+.right-side {
+  height: 100vh;
+  padding: 1rem;
+  width: 100%;
 }
 
-.transfer-btn{
-    background-color: #003087 !important;
-    color: white !important;
-    font-weight: bold;
+.transfer-btn {
+  background-color: #003087 !important;
+  color: white !important;
+  font-weight: bold;
 }
 
-.dollar{
-    font-size: 3.5rem;
-    margin-top: 1rem;
-    padding: 1rem 0;
-    font-weight: bold;
-    color: black;
+.dollar {
+  font-size: 3.5rem;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  font-weight: bold;
+  color: black;
 }
 
-mat-card-title{
-    font-size: 1rem;
+mat-card-title {
+  font-size: 1rem;
 }
 
-mat-card{
-    border-radius: 1rem;
+mat-card {
+  border-radius: 1rem;
 }
 
-.transfer-btn:hover{
-    background-color: #4576d1 !important;
-    display: flex;
-    justify-content: center !important;
-    align-items: center !important;
+.transfer-btn:hover {
+  background-color: #4576d1 !important;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
-.send-money{
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.send-money {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.send-money .transfer-btn{
-    font-size: 1.5rem;
-    padding: 2rem  !important;
+.send-money .transfer-btn {
+  font-size: 1.5rem;
+  padding: 2rem !important;
 }
 
-mat-icon{
-    font-size: 1.2rem !important;
-    margin-right: 4rem;
+mat-icon {
+  font-size: 1.2rem !important;
+  margin-right: 4rem;
 }
 
-.card{
-    background-image: url('./card.jpg');
-    background-size: cover;
-    height: 30vh;
-    color: white;
+.card {
+  background-image: url("./card.jpg");
+  background-size: cover;
+  height: 30vh;
+  color: white;
 }
 
-.flex{
-    font-size: 2.5rem;
-    margin: 1rem 0;
-    color: white;
-    font-weight: bold;
+.flex {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: white;
+  font-weight: bold;
 }
 
-.username{
-    margin: 2rem 0;
-    font-size: 1.5rem;
-    text-transform: capitalize;
+.username {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+  text-transform: capitalize;
 }
 
-.card_number{
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 1rem;
+.card_number {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1rem;
 }
 
-.email{
-    margin-top: 4rem;
-    font-size: 1.2rem;
-    color: white;
-    margin-bottom: 1rem;
+.email {
+  margin-top: 4rem;
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 1rem;
 }
 
-.valid_to{
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
+.valid_to {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
 }

@@ -1,24 +1,23 @@
-mat-toolbar{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
 }
 
-.wrapper{
-    width: 80%;
-    margin: auto;
+.wrapper {
+  width: 80%;
+  margin: auto;
 }
 
-div{
-    display: flex;
-    width: 100%;
-    align-items: center;
+div {
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-

@@ -7,9 +7,18 @@
       <p>Change your email</p>
       <mat-form-field class="example-full-width">
         <mat-label>Email</mat-label>
-        <input type="email" matInput [formControl]="EmailControl" [errorStateMatcher]="matcher"
-               placeholder="Ex. pat@example.com">
-        <mat-error *ngIf="EmailControl.hasError('email') && !EmailControl.hasError('required')">
+        <input
+          type="email"
+          matInput
+          [formControl]="EmailControl"
+          [errorStateMatcher]="matcher"
+          placeholder="Ex. pat@example.com"
+        />
+        <mat-error
+          *ngIf="
+            EmailControl.hasError('email') && !EmailControl.hasError('required')
+          "
+        >
           Please enter a valid email address
         </mat-error>
         <mat-error *ngIf="EmailControl.hasError('required')">
@@ -17,7 +26,8 @@
         </mat-error>
       </mat-form-field>
 
-      <button mat-flat-button (click)="changeEmail()">Change email</button> <!-- Call the method on click -->
+      <button mat-flat-button (click)="changeEmail()">Change email</button>
+      <!-- Call the method on click -->
     </div>
   </div>
 </div>

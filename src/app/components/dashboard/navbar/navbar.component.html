@@ -1,24 +1,29 @@
-<mat-toolbar  color="primary">
+<mat-toolbar color="primary">
   <div class="wrapper">
-  <div>
-    <button style="margin-right: 1rem;" mat-flat-button  routerLink="/dashboard">
-      <mat-icon>home</mat-icon>
-      <p>Home</p>
-    </button>
-  
+    <div>
+      <button
+        style="margin-right: 1rem"
+        mat-flat-button
+        routerLink="/dashboard"
+      >
+        <mat-icon>home</mat-icon>
+        <p>Home</p>
+      </button>
 
-    <button style="margin-right: 1rem;" mat-flat-button  routerLink="/dashboard/settings">
-      <mat-icon>settings</mat-icon>
-      <p>Settings</p>
-    </button>
-  </div>
+      <button
+        style="margin-right: 1rem"
+        mat-flat-button
+        routerLink="/dashboard/settings"
+      >
+        <mat-icon>settings</mat-icon>
+        <p>Settings</p>
+      </button>
+    </div>
     <span class="spacer"></span>
 
-    
     <button (click)="logOut()" mat-flat-button>
       <mat-icon>logout</mat-icon>
       <p>Logout</p>
     </button>
   </div>
-  </mat-toolbar>
-  
+</mat-toolbar>

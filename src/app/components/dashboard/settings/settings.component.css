@@ -1,33 +1,33 @@
-.settings-container{
-    background-color: #eeeeee;
-    height: 100vh;
-    width: 100%;
+.settings-container {
+  background-color: #eeeeee;
+  height: 100vh;
+  width: 100%;
 }
 
-.wrapper{
-    width: 80%;
-    padding: 1rem;
-    margin: auto;
-    height: 80%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+.wrapper {
+  width: 80%;
+  padding: 1rem;
+  margin: auto;
+  height: 80%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
-.settings{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 50%;
+.settings {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
 }
 
-.settings button{
-    width: 30%;
-    margin: auto;
+.settings button {
+  width: 30%;
+  margin: auto;
 }
 
-p{
-    font-size: 2rem;
+p {
+  font-size: 2rem;
 }

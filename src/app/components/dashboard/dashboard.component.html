@@ -1,43 +1,54 @@
 <div class="dash-container">
-    <app-navbar />
-    <div class="wrapper">
-        <div class="left-side">
-            <mat-card appearance="outlined">
-                <mat-card-content>
-                <mat-card-title>FlexPay balance</mat-card-title>
-                <mat-card-subtitle  *ngIf="balance !== null" class="dollar">{{balance}}$</mat-card-subtitle>
-                <mat-card-subtitle>Available</mat-card-subtitle>
+  <app-navbar />
+  <div class="wrapper">
+    <div class="left-side">
+      <mat-card appearance="outlined">
+        <mat-card-content>
+          <mat-card-title>FlexPay balance</mat-card-title>
+          <mat-card-subtitle *ngIf="balance !== null" class="dollar"
+            >{{ balance }}$</mat-card-subtitle
+          >
+          <mat-card-subtitle>Available</mat-card-subtitle>
 
-                <br>
+          <br />
 
-                <button  (click)="openTransferDialog()"  class="transfer-btn" mat-flat-button>Transfer Funds</button>
-            </mat-card-content>
-              </mat-card>
+          <button
+            (click)="openTransferDialog()"
+            class="transfer-btn"
+            mat-flat-button
+          >
+            Transfer Funds
+          </button>
+        </mat-card-content>
+      </mat-card>
 
+      <mat-card class="send-money">
+        <mat-card-content>
+          <mat-card-title> Want to send money? </mat-card-title>
 
-              <mat-card class="send-money">
-                <mat-card-content>
-                    <mat-card-title>
-                        Want to send money?
-                    </mat-card-title>
+          <br />
 
-                    <br>
-
-                    <button class="transfer-btn" mat-flat-button> <mat-icon>wallet</mat-icon> Send money</button>
-                </mat-card-content>
-              </mat-card>
-        </div>
-
-        <div class="right-side">
-            <mat-card class="card" appearance="outlined">
-                <mat-card-content>
-                <mat-card-subtitle class="flex">Flex Pay Card</mat-card-subtitle>
-                <mat-card-title class="username">{{username}}</mat-card-title>
-                <mat-card-subtitle class="email">{{user_email}}</mat-card-subtitle>
-                <mat-card-subtitle class="card_number">Card Number: {{card_number}}</mat-card-subtitle>
-                <mat-card-subtitle class="valid_to">Valid to: {{valid_to}}</mat-card-subtitle>
-            </mat-card-content>
-              </mat-card>
-        </div>
+          <button class="transfer-btn" mat-flat-button>
+            <mat-icon>wallet</mat-icon> Send money
+          </button>
+        </mat-card-content>
+      </mat-card>
     </div>
+
+    <div class="right-side">
+      <mat-card class="card" appearance="outlined">
+        <mat-card-content>
+          <mat-card-subtitle class="flex">Flex Pay Card</mat-card-subtitle>
+          <mat-card-title class="username">{{ username }}</mat-card-title>
+          <mat-card-subtitle class="email">{{ user_email }}</mat-card-subtitle>
+          <mat-card-subtitle class="card_number"
+            >Card Number: {{ card_number }}</mat-card-subtitle
+          >
+          <mat-card-subtitle class="valid_to"
+            >Valid to: {{ valid_to }}</mat-card-subtitle
+          >
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
